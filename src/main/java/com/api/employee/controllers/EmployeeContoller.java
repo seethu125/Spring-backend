@@ -17,7 +17,7 @@ import com.api.employee.repos.EmployeeRepository;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3001")
+@CrossOrigin
 public class EmployeeContoller {
 
 	@Autowired
