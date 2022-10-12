@@ -30,6 +30,11 @@ public class ProductController {
 		return productRepository.findById(id).orElse(null);
 	}
 	
+	@GetMapping("/list/product/ids")
+	public List<ProductEntity> listProducts(@RequestParam List<Integer> ids) {
+		return productRepository.findAllById(ids);
+	}
+	
 	@PostMapping("/add/product")
 	public ProductEntity saveProduct(@RequestBody ProductEntity productEntity) {
 		return productRepository.save(productEntity);
@@ -39,4 +44,6 @@ public class ProductController {
 	public void deleteProduct(@RequestParam int id) {
 		 productRepository.findById(id).ifPresent(product -> productRepository.delete(product));
 	}
+	
+	
 }
